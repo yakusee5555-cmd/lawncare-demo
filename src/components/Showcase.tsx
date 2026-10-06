@@ -1,60 +1,35 @@
 import { useEffect, useRef, useState } from "react";
-import { FLOAT_CARDS, GLASS_CARDS, LIST_ROWS, SERVICE_CARDS, STACK_WORDS, WORK_SHOTS } from "../data";
+import { GLASS_CARDS, LIST_ROWS, WORK_SHOTS } from "../data";
 
 /* ---------- Section 2: stacked headline + floating cards (like "Homes. Loans. Agents. Tours.") ---------- */
 export function Stacked() {
-  const floats = ["floaty", "floaty-2", "floaty-3"];
-  const tilts = ["rotate-[1.5deg]", "rotate-[-1.2deg]", "rotate-[1deg]", "rotate-[-1.5deg]", "rotate-[1.2deg]", "rotate-[-1deg]"];
   return (
     <section id="services" className="relative overflow-hidden bg-ink py-12 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
-          What we do
-        </p>
-        <div className="mt-3 flex flex-wrap items-end justify-between gap-6">
-          <h2 className="reveal max-w-xl font-display text-3xl uppercase leading-[1.05] text-cream md:text-5xl md:leading-[1.02]">
-            The right care for every corner of your lawn.
-          </h2>
-          <p className="reveal max-w-sm text-base leading-relaxed text-cream/55">
-            Considered lawn care for homeowners who value consistency, clean finishes,
-            and a yard that gets better with time.
+      {/* faded photographic backdrop */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <img
+          src="/img/lawn/services-bg.jpg"
+          alt=""
+          loading="lazy"
+          className="h-full w-full object-cover opacity-20"
+          draggable={false}
+        />
+        <div className="absolute inset-0 bg-ink/60" />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-6 md:px-12">
+        <div className="mb-8 md:mb-12">
+          <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
+            What we do
           </p>
+          <h2 className="reveal mt-3 font-display text-2xl uppercase leading-[1.05] text-cream md:text-6xl md:leading-[1.02]">
+            What we do best.
+          </h2>
         </div>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 md:mt-14 lg:grid-cols-3">
-          {SERVICE_CARDS.map((c, i) => (
-            <article
-              key={c.title}
-              className={`reveal ${floats[i % 3]} ${tilts[i % 6]} overflow-hidden rounded-2xl bg-cream shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:rotate-0`}
-              style={{ transitionDelay: `${(i % 3) * 90}ms` }}
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={c.img}
-                  alt={c.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  draggable={false}
-                />
-                <span className="absolute left-3 top-3 rounded-full bg-forest px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-cream">
-                  From {c.from}
-                </span>
-              </div>
-              <div className="p-6">
-                <p className="text-xs font-bold tracking-[0.2em] text-charcoal/40">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-2 font-display text-xl uppercase text-charcoal">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/60">{c.desc}</p>
-                <a
-                  href="#contact"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-forest transition-all hover:gap-2"
-                >
-                  Ask about this service <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            </article>
+        <div>
+          {LIST_ROWS.map((row, i) => (
+            <ServiceRow key={row.title} row={row} i={i} />
           ))}
+          <div className="border-t border-cream/15" />
         </div>
       </div>
     </section>

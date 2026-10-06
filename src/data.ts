@@ -86,6 +86,11 @@ export const LIST_ROWS: ListRow[] = [
     title: "Yard cleanup",
     desc: "Debris gone, lawn breathing",
   },
+  {
+    img: "/img/lawn/cards/mulch.jpg",
+    title: "Mulch & bed care",
+    desc: "Fresh mulch, sharp beds",
+  },
 ];
 
 /* Glass cards on full-bleed image (section 4) */
