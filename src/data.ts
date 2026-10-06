@@ -216,3 +216,49 @@ export const TOWNS = [
   "Carrollton",
   "Coppell",
 ];
+
+export interface ServiceCard {
+  img: string;
+  from: string;
+  title: string;
+  desc: string;
+}
+
+export const SERVICE_CARDS: ServiceCard[] = [
+  {
+    img: "/img/lawn/cards/mow.jpg",
+    from: "$45",
+    title: "Lawn mowing",
+    desc: "Weekly cuts with crisp stripes and edging included, at the right height for Texas grass.",
+  },
+  {
+    img: "/img/lawn/cards/edge.jpg",
+    from: "$79",
+    title: "Edging & trimming",
+    desc: "Sharp lines along walks, drives, and garden beds — finished on every single visit.",
+  },
+  {
+    img: "/img/lawn/cards/feed.jpg",
+    from: "$59",
+    title: "Fertilization & weed control",
+    desc: "Season-long feeding that keeps turf thick, green, and weeds crowded out.",
+  },
+  {
+    img: "/img/lawn/cards/aerate.jpg",
+    from: "$149",
+    title: "Aeration & overseeding",
+    desc: "Loosened, decompacted soil and thicker growth starting from the roots.",
+  },
+  {
+    img: "/img/lawn/cards/cleanup.jpg",
+    from: "$149",
+    title: "Yard cleanup",
+    desc: "Leaves, sticks, and overgrowth cleared and hauled away, yard left breathing.",
+  },
+  {
+    img: "/img/lawn/cards/mulch.jpg",
+    from: "$99",
+    title: "Mulch & bed care",
+    desc: "Fresh mulch, weed-free beds, and sharp definition that frames the whole lawn.",
+  },
+];

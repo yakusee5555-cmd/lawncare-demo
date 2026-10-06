@@ -1,44 +1,57 @@
 import { useEffect, useRef, useState } from "react";
-import { FLOAT_CARDS, GLASS_CARDS, LIST_ROWS, STACK_WORDS, WORK_SHOTS } from "../data";
+import { FLOAT_CARDS, GLASS_CARDS, LIST_ROWS, SERVICE_CARDS, STACK_WORDS, WORK_SHOTS } from "../data";
 
 /* ---------- Section 2: stacked headline + floating cards (like "Homes. Loans. Agents. Tours.") ---------- */
 export function Stacked() {
+  const floats = ["floaty", "floaty-2", "floaty-3"];
+  const tilts = ["rotate-[1.5deg]", "rotate-[-1.2deg]", "rotate-[1deg]", "rotate-[-1.5deg]", "rotate-[1.2deg]", "rotate-[-1deg]"];
   return (
-    <section id="services" className="relative overflow-hidden bg-cream py-12 md:py-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:px-12 lg:grid-cols-[1.1fr_1fr]">
-        <div className="reveal rv-left">
-          <p className="mb-3 inline-block rounded-full border border-charcoal/15 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.25em] text-charcoal/70">
-            What we do
-          </p>
-          <h2 className="font-display leading-[0.98]">
-            {STACK_WORDS.map((w, i) => (
-              <span key={w} className="reveal block text-[clamp(1.5rem,7.5vw,5.2rem)] text-charcoal" style={{ transitionDelay: `${i * 90}ms` }}>
-                {w}
-              </span>
-            ))}
+    <section id="services" className="relative overflow-hidden bg-ink py-12 md:py-32">
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
+        <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
+          What we do
+        </p>
+        <div className="mt-3 flex flex-wrap items-end justify-between gap-6">
+          <h2 className="reveal max-w-xl font-display text-3xl uppercase leading-[1.05] text-cream md:text-5xl md:leading-[1.02]">
+            The right care for every corner of your lawn.
           </h2>
-          <p className="reveal mt-6 max-w-md text-base leading-relaxed text-charcoal/65">
-            Every job done by trained climbers with professional rigging — and we leave your
-            property cleaner than we found it.
+          <p className="reveal max-w-sm text-base leading-relaxed text-cream/55">
+            Considered lawn care for homeowners who value consistency, clean finishes,
+            and a yard that gets better with time.
           </p>
         </div>
 
-        {/* floating tilted cards */}
-        <div className="relative flex flex-col items-center gap-6 md:h-[560px] md:flex-row md:items-start md:justify-center md:gap-0">
-          {FLOAT_CARDS.map((c, i) => (
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 md:mt-14 lg:grid-cols-3">
+          {SERVICE_CARDS.map((c, i) => (
             <article
               key={c.title}
-              className={`reveal w-64 shrink-0 overflow-hidden rounded-2xl bg-white shadow-[0_20px_60px_rgba(0,0,0,0.18)] transition-transform duration-500 hover:rotate-0 hover:scale-[1.04] ${c.rotate} ${c.offset} ${
-                i === 0 ? "floaty" : i === 1 ? "floaty-2 md:-ml-8 md:mt-24" : "floaty-3 md:-ml-8"
-              }`}
-              style={{ transitionDelay: `${i * 120}ms` }}
+              className={`reveal ${floats[i % 3]} ${tilts[i % 6]} overflow-hidden rounded-2xl bg-cream shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-transform duration-500 hover:rotate-0`}
+              style={{ transitionDelay: `${(i % 3) * 90}ms` }}
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={c.img} alt={c.title} loading="lazy" className="h-full w-full object-cover" />
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={c.img}
+                  alt={c.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                  draggable={false}
+                />
+                <span className="absolute left-3 top-3 rounded-full bg-forest px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-cream">
+                  From {c.from}
+                </span>
               </div>
-              <div className="p-5">
-                <h3 className="font-display text-xl uppercase text-charcoal">{c.title}</h3>
-                <p className="mt-1 text-[13px] text-charcoal/60">{c.meta}</p>
+              <div className="p-6">
+                <p className="text-xs font-bold tracking-[0.2em] text-charcoal/40">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-2 font-display text-xl uppercase text-charcoal">{c.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-charcoal/60">{c.desc}</p>
+                <a
+                  href="#contact"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-forest transition-all hover:gap-2"
+                >
+                  Ask about this service <span aria-hidden="true">&rarr;</span>
+                </a>
               </div>
             </article>
           ))}
