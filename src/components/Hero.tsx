@@ -5,8 +5,7 @@ import QuoteForm from "./QuoteForm";
 export default function Hero() {
   const backRef = useRef<HTMLDivElement>(null);
   const foreRef = useRef<HTMLDivElement>(null);
-  const topRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const markRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -30,10 +29,8 @@ export default function Hero() {
           markRef.current.style.transform = `translateY(${-y * 0.08}px) scale(${s})`;
           markRef.current.style.opacity = String(Math.max(0.25, 1 - y / 900));
         }
-        // NOTE: QuoteForm is outside the fading refs — it never fades on scroll
-        const fade = String(Math.max(0, 1 - y / 500));
-        if (topRef.current) topRef.current.style.opacity = fade;
-        if (textRef.current) textRef.current.style.opacity = fade;
+        if (contentRef.current)
+          contentRef.current.style.opacity = String(Math.max(0, 1 - y / 500));
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -52,7 +49,7 @@ export default function Hero() {
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <h1
             ref={markRef}
-            className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(1.4rem,6vw,10rem)] will-change-transform"
+            className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(1.9rem,9.5vw,17rem)] will-change-transform"
           >
             LAWN CARE
           </h1>
@@ -75,17 +72,20 @@ export default function Hero() {
       </div>
 
       {/* CONTENT */}
-      <div className="relative z-20 flex flex-1 flex-col justify-between px-6 md:px-12 pt-28 pb-10">
-        <div ref={topRef} className="hero-fade flex justify-end" style={{ animationDelay: "0.9s" }}>
-          <p className="text-right text-[10px] md:text-[11px] font-bold tracking-[0.35em] text-white/70 leading-loose">
+      <div
+        ref={contentRef}
+        className="relative z-20 flex flex-1 flex-col justify-between px-6 md:px-12 pt-28 pb-10"
+      >
+        <div className="hero-fade flex justify-end" style={{ animationDelay: "0.9s" }}>
+          <p className="text-right text-[11px] md:text-xs font-bold tracking-[0.35em] text-white/70 leading-loose">
             MOWING<br />EDGING<br />FERTILIZING
           </p>
         </div>
 
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div ref={textRef}>
+        <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
+          <div>
             <p
-              className="hero-fade text-center text-[11px] md:text-xs font-bold tracking-[0.4em] text-white/80 lg:text-left"
+              className="hero-fade text-center text-xs md:text-sm font-bold tracking-[0.5em] text-white/80 lg:text-left"
               style={{ animationDelay: "1.1s" }}
             >
               LAWN CARE & LANDSCAPING
@@ -107,20 +107,6 @@ export default function Hero() {
                 (972) 961-6084
               </a>
             </div>
-            <figure
-              className="hero-fade mt-6 hidden w-60 rotate-[-4deg] rounded-xl bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:block"
-              style={{ animationDelay: "1.35s" }}
-            >
-              <img
-                src="/img/lawn/mower.jpg"
-                alt="Crew mowing a striped lawn"
-                className="aspect-[4/3] w-full rounded-lg object-cover"
-                draggable={false}
-              />
-              <figcaption className="px-1 py-2 text-center text-[10px] font-bold uppercase tracking-[0.25em] text-white/70">
-                Striped in Dallas, TX
-              </figcaption>
-            </figure>
           </div>
           <QuoteForm />
         </div>

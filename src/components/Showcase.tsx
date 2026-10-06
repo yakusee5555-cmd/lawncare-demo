@@ -18,7 +18,7 @@ export function Stacked() {
             ))}
           </h2>
           <p className="reveal mt-6 max-w-md text-base leading-relaxed text-charcoal/65">
-            Every visit done right — crisp stripes, clean edges — and we leave your
+            Every job done by trained climbers with professional rigging — and we leave your
             property cleaner than we found it.
           </p>
         </div>
@@ -102,15 +102,7 @@ export function DarkList() {
               What we do best.
             </h2>
           </div>
-          <div className="reveal flex items-center gap-4">
-            <p className="hidden text-sm text-cream/50 md:block">Hover a service to preview</p>
-            <img
-              src="/img/lawn/edging.jpg"
-              alt="Freshly edged lawn border"
-              loading="lazy"
-              className="h-20 w-32 rounded-xl object-cover shadow-lg md:h-24 md:w-44"
-            />
-          </div>
+          <p className="reveal hidden text-sm text-cream/50 md:block">Hover a service to preview</p>
         </div>
 
         <div>
@@ -355,12 +347,6 @@ export function Pricing() {
             Straightforward packages for the jobs we do every day. Final quote confirmed
             on-site — always free, never pushy.
           </p>
-          <img
-            src="/img/lawn/stripes2.webp"
-            alt="Thick green striped lawn"
-            loading="lazy"
-            className="reveal hidden h-28 w-52 shrink-0 rounded-2xl object-cover shadow-2xl lg:block"
-          />
         </div>
 
         <MowReveal>

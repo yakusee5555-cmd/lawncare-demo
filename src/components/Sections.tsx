@@ -243,12 +243,6 @@ export function Contact() {
               </dd>
             </div>
           </dl>
-          <img
-            src="/img/lawn/stripes.jpg"
-            alt="Freshly mowed striped lawn"
-            loading="lazy"
-            className="reveal mt-8 aspect-[16/9] w-full max-w-md rounded-2xl object-cover shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
-          />
         </div>
         <div className="reveal rounded-3xl bg-white p-7 shadow-[0_20px_60px_rgba(0,0,0,0.12)] md:p-9">
           {sent ? (
