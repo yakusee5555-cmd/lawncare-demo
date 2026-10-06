@@ -228,6 +228,7 @@ const TIERS = [
     name: "Full Service",
     price: "$149",
     per: "/mo",
+    badge: "Most affordable",
     features: [
       "Everything in Essential Mow",
       "Fertilization program",
@@ -383,6 +384,11 @@ export function Pricing() {
                   : "border border-cream/15 bg-white/[0.03] text-cream"
               }`}
             >
+              {t.badge && (
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-forest px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-cream">
+                  {t.badge}
+                </span>
+              )}
               <h3 className="font-display text-xl uppercase tracking-wide md:text-2xl">
                 {t.name}
               </h3>
