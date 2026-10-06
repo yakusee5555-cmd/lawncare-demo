@@ -84,7 +84,6 @@ export default function QuoteForm() {
       >
         REQUEST MY FREE QUOTE
       </button>
-      <p className="mt-3 text-center text-xs text-charcoal/50">No spam, no pushy sales calls. Just a quote.</p>
     </form>
   );
 }
