@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <h1
             ref={markRef}
-            className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(1.9rem,9.5vw,17rem)] will-change-transform [text-shadow:0_2px_60px_rgba(0,0,0,0.65)]"
+            className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(1.6rem,7vw,12rem)] will-change-transform [text-shadow:0_2px_60px_rgba(0,0,0,0.65)]"
           >
             LAWN CARE
           </h1>
