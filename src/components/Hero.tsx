@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <h1
             ref={markRef}
-            className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(1.9rem,9.5vw,17rem)] will-change-transform"
+            className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(1.9rem,9.5vw,17rem)] will-change-transform [text-shadow:0_2px_60px_rgba(0,0,0,0.65)]"
           >
             LAWN CARE
           </h1>
@@ -59,13 +59,13 @@ export default function Hero() {
       {/* FRONT LAYER — trees overlapping the wordmark */}
       <div ref={foreRef} className="absolute inset-0 z-10 will-change-transform pointer-events-none">
         <img
-          src="/img/lawn/mower2.jpg"
-          alt="Crew member mowing a lawn in front of the Lawn Care wordmark"
+          src="/img/lawn/hero-hires.webp"
+          alt="Striped green lawn in front of the Lawn Care wordmark"
           draggable={false}
           className="hero-fore h-full w-full object-cover"
           style={{
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 16%, black 48%)",
-            maskImage: "linear-gradient(to bottom, transparent 16%, black 48%)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent 34%, black 66%)",
+            maskImage: "linear-gradient(to bottom, transparent 34%, black 66%)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
