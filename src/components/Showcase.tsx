@@ -202,7 +202,7 @@ const TIERS = [
   {
     name: "Essential Mow",
     price: "$49",
-    prefix: "from/visit",
+    per: "/visit",
     features: [
       "Mowing with crisp stripes",
       "Edging & trimming included",
@@ -214,7 +214,7 @@ const TIERS = [
   {
     name: "Full Service",
     price: "$149",
-    prefix: "from/mo",
+    per: "/mo",
     features: [
       "Everything in Essential Mow",
       "Fertilization program",
@@ -227,7 +227,7 @@ const TIERS = [
   {
     name: "Seasonal Reset",
     price: "$199",
-    prefix: "from",
+    per: "",
     features: [
       "Spring & fall cleanups",
       "Aeration & overseeding",
@@ -378,15 +378,26 @@ export function Pricing() {
               <h3 className="font-display text-xl uppercase tracking-wide md:text-2xl">
                 {t.name}
               </h3>
-              <div className="mt-5 flex items-baseline gap-2">
-                <span
+              <div className="mt-5">
+                <p
                   className={`text-xs font-bold uppercase tracking-[0.2em] ${
                     t.popular ? "text-charcoal/55" : "text-cream/45"
                   }`}
                 >
-                  {t.prefix}
-                </span>
-                <span className="font-display text-4xl md:text-6xl">{t.price}</span>
+                  From
+                </p>
+                <p className="mt-1 flex items-baseline gap-2">
+                  <span className="font-display text-5xl md:text-6xl">{t.price}</span>
+                  {t.per && (
+                    <span
+                      className={`text-sm font-bold uppercase tracking-[0.15em] ${
+                        t.popular ? "text-charcoal/55" : "text-cream/45"
+                      }`}
+                    >
+                      {t.per}
+                    </span>
+                  )}
+                </p>
               </div>
               <ul
                 className={`mt-6 flex-1 space-y-3 border-t pt-6 text-base ${
