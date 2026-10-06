@@ -385,7 +385,7 @@ export function Pricing() {
               }`}
             >
               {t.badge && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-forest px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-cream">
+                <span className="absolute left-1/2 top-4 -translate-x-1/2 rounded-full bg-forest px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-cream">
                   {t.badge}
                 </span>
               )}
