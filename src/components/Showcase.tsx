@@ -91,8 +91,19 @@ function ServiceRow({ row, i }: { row: (typeof LIST_ROWS)[number]; i: number }) 
 
 export function DarkList() {
   return (
-    <section id="why-us" className="relative bg-ink py-12 md:py-32">
-      <div className="mx-auto max-w-6xl px-6 md:px-12">
+    <section id="why-us" className="relative overflow-hidden bg-ink py-12 md:py-32">
+      {/* faded photographic backdrop */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <img
+          src="/img/lawn/services-bg.jpg"
+          alt=""
+          loading="lazy"
+          className="h-full w-full object-cover opacity-20"
+          draggable={false}
+        />
+        <div className="absolute inset-0 bg-ink/60" />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-6 md:px-12">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 md:mb-12">
           <div>
             <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
