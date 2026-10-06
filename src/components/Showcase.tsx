@@ -383,11 +383,6 @@ export function Pricing() {
                   : "border border-cream/15 bg-white/[0.03] text-cream"
               }`}
             >
-              {t.popular && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-forest px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-cream">
-                  Most popular
-                </span>
-              )}
               <h3 className="font-display text-xl uppercase tracking-wide md:text-2xl">
                 {t.name}
               </h3>

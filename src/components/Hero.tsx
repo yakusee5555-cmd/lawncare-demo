@@ -59,8 +59,8 @@ export default function Hero() {
       {/* FRONT LAYER — trees overlapping the wordmark */}
       <div ref={foreRef} className="absolute inset-0 z-10 will-change-transform pointer-events-none">
         <img
-          src="/img/lawn/hero-lawn.png"
-          alt="Striped green lawn in front of the Lawn Care wordmark"
+          src="/img/lawn/mower2.jpg"
+          alt="Crew member mowing a lawn in front of the Lawn Care wordmark"
           draggable={false}
           className="hero-fore h-full w-full object-cover"
           style={{
@@ -77,7 +77,7 @@ export default function Hero() {
         className="relative z-20 flex flex-1 flex-col justify-between px-6 md:px-12 pt-28 pb-10"
       >
         <div className="hero-fade flex justify-end" style={{ animationDelay: "0.9s" }}>
-          <p className="text-right text-[11px] md:text-xs font-bold tracking-[0.35em] text-white/70 leading-loose">
+          <p className="text-right text-[11px] md:text-xs font-bold tracking-[0.35em] text-white/95 leading-loose">
             MOWING<br />EDGING<br />FERTILIZING
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function Hero() {
         <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
           <div>
             <p
-              className="hero-fade text-center text-xs md:text-sm font-bold tracking-[0.5em] text-white/80 lg:text-left"
+              className="hero-fade text-center text-xs md:text-sm font-bold tracking-[0.5em] text-white lg:text-left"
               style={{ animationDelay: "1.1s" }}
             >
               LAWN CARE & LANDSCAPING
